@@ -47,6 +47,7 @@ const Footer = () => {
               +9779816399133
             </a>
             <a href="mailto:manish.sinuwari@gmail.com" className="text-warning">
+              <br />
               <i className="fa fa-envelope-o mr-3" />
               manish.sinuwari@gmail.com
             </a>
