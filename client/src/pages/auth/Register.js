@@ -4,8 +4,8 @@ import { Link, Redirect } from "react-router-dom";
 import { setAlert } from "../../redux/action/alert.actions";
 import { register } from "../../redux/action/auth.actions";
 import PropTypes from "prop-types";
-
-const Register = ({ setAlert, register, isAuthenticated }) => {
+import Spinner from "../../components/layout/Spinner";
+const Register = ({ setAlert, register, isAuthenticated, loading }) => {
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -26,7 +26,9 @@ const Register = ({ setAlert, register, isAuthenticated }) => {
       register({ name, email, password, passwordConfirm });
     }
   };
-
+  if (loading) {
+    return <Spinner />;
+  }
   if (isAuthenticated) {
     return <Redirect to="/" />;
   }
