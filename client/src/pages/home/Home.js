@@ -1,6 +1,9 @@
 import React from "react";
-
-const Home = () => {
+import { connect } from "react-redux";
+import PropTypes from "prop-types";
+import Spinner from "../../components/layout/Spinner";
+const Home = ({ loading }) => {
+  if (loading) return <Spinner />;
   return (
     <div
       className="container"
@@ -15,4 +18,11 @@ const Home = () => {
   );
 };
 
-export default Home;
+Home.propTypes = {
+  loading: PropTypes.bool,
+};
+const mapStateToProps = (state) => ({
+  loading: state.auth.loading,
+});
+
+export default connect(mapStateToProps, null)(Home);
