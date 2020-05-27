@@ -3,7 +3,7 @@ import store from "./../redux/store";
 import { LOGOUT } from "../redux/action/types";
 
 const api = axios.create({
-  baseURL: "http://localhost:8000/api/v1",
+  baseURL: "/api/v1",
   headers: {
     "Content-Type": "application/json",
   },
