@@ -7,7 +7,7 @@ const Home = ({ loading }) => {
   if (loading) return <Spinner />;
   return (
     <div
-      className=""
+      className="img-fluid"
       style={{
         backgroundImage: `url("${homeBackground}")`,
         height: "100vh",
