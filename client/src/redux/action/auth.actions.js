@@ -38,12 +38,9 @@ export const register = ({ name, email, password, passwordConfirm }) => async (
     });
     dispatch(loadUser());
   } catch (err) {
-    if (err.response) {
-      const errors = err.response.data.errors;
-
-      if (errors) {
-        errors.forEach((error) => dispatch(setAlert(error.msg, "danger")));
-      }
+    const errors = err.response.data;
+    if (errors) {
+      dispatch(setAlert(errors.message, "danger"));
     }
     dispatch({
       type: REGISTER_FAIL,
