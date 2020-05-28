@@ -4,12 +4,16 @@ import { connect } from "react-redux";
 import PropTypes from "prop-types";
 import { logout } from "../../redux/action/auth.actions";
 
-const Header = ({ auth: { isAuthenticated, loading }, logout }) => {
+const Header = ({ auth: { isAuthenticated, user }, logout }) => {
   const authLinks = (
     <ul className="navbar-nav">
       <li className="nav-item ">
         <a onClick={logout} href="#!" className="nav-link">
-          <i className="fas fa-sign-out-alt" />{" "}
+          <span className="mr-2 text-primary">
+            Hello {user ? user.name : ""}
+          </span>
+          <i className="fa fa-sign-out" />
+
           <span className="hide-sm">Logout</span>
         </a>
       </li>

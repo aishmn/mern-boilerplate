@@ -16,7 +16,7 @@ export const loadUser = () => async (dispatch) => {
 
     dispatch({
       type: USER_LOADED,
-      payload: res.data,
+      payload: res.data.data.data,
     });
   } catch (err) {
     dispatch({
@@ -37,6 +37,7 @@ export const register = ({ name, email, password, passwordConfirm }) => async (
       payload: res.data,
     });
     dispatch(loadUser());
+    dispatch(setAlert(`Hello ${name}, Account succesfully created!`));
   } catch (err) {
     const errors = err.response.data;
     if (errors) {
@@ -72,6 +73,8 @@ export const login = (email, password) => async (dispatch) => {
   }
 };
 
-export const logout = () => (dispatch) => {
+export const logout = () => async (dispatch) => {
+  await api.get("/users/logout");
   dispatch({ type: LOGOUT });
+  dispatch(setAlert("Logged out succesfully! Please visit again, thank's."));
 };

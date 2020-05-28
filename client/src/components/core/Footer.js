@@ -4,7 +4,7 @@ const Footer = () => {
   const currentDate = new Date();
   const currentYear = currentDate.getFullYear();
   return (
-    <div className="mt-5 pt-5 pb-5 footer">
+    <div className="pt-5 pb-5 footer">
       <div className="container">
         <div className="row">
           <div className="col-lg-5 col-xs-12 about-company">
